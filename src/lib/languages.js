@@ -15,15 +15,15 @@ export const languages = {
       100: 'cien'
     },
     ipa: {
-      1: 'ˈuno',
+      1: 'ˈu.no',
       2: 'dos',
       3: 'tɾes',
-      4: 'ˈkwatɾo',
-      5: 'ˈθiŋko',
+      4: 'ˈkwa.tɾo',
+      5: 'ˈθiŋ.ko',
       6: 'sejs',
-      7: 'ˈsjete',
-      8: 'ˈot͡ʃo',
-      9: 'ˈnweβe',
+      7: 'ˈsje.te',
+      8: 'ˈo.t͡ʃo',
+      9: 'ˈnwe.βe',
       10: 'djeθ',
       100: 'θjen'
     }
@@ -47,7 +47,7 @@ export const languages = {
       1: 'œ̃',
       2: 'dø',
       3: 'tʁwa',
-      4: 'katʁ',
+      4: 'ka.tʁ',
       5: 'sɛ̃k',
       6: 'sis',
       7: 'sɛt',
@@ -79,11 +79,11 @@ export const languages = {
       4: 'fiːɐ̯',
       5: 'fʏnf',
       6: 'zɛks',
-      7: 'ˈziːbn̩',
+      7: 'ˈziː.bn̩',
       8: 'axt',
       9: 'nɔʏ̯n',
       10: 'tseːn',
-      100: 'ˈhʊndɐt'
+      100: 'ˈhʊn.dɐt'
     }
   },
   albanian: {
@@ -105,14 +105,14 @@ export const languages = {
       1: 'ɲə',
       2: 'dy',
       3: 'tɾɛ',
-      4: 'ˈkatəɾ',
-      5: 'ˈpɛsə',
-      6: 'ˈɟaʃtə',
-      7: 'ˈʃtatə',
-      8: 'ˈtɛtə',
-      9: 'ˈnəntə',
-      10: 'ˈðjɛtə',
-      100: 'ɲəˈcind'
+      4: 'ˈka.təɾ',
+      5: 'ˈpɛ.sə',
+      6: 'ˈɟa.ʃtə',
+      7: 'ˈʃta.tə',
+      8: 'ˈtɛ.tə',
+      9: 'ˈnən.tə',
+      10: 'ˈðjɛ.tə',
+      100: 'ɲə.ˈcind'
     }
   },
   armenian: {
@@ -132,16 +132,16 @@ export const languages = {
     },
     ipa: {
       1: 'mɛk',
-      2: 'jɛɾˈku',
-      3: 'jɛˈɾɛk',
+      2: 'jɛɾ.ˈku',
+      3: 'jɛ.ˈɾɛk',
       4: 't͡ʃɔɾs',
       5: 'hink',
       6: 'vɛt͡s',
       7: 'jɔtʰ',
       8: 'utʰ',
-      9: 'inə',
-      10: 'tʰɑˈsə',
-      100: 'hɑˈɾjuɾ'
+      9: 'i.nə',
+      10: 'tʰɑ.ˈsə',
+      100: 'hɑ.ˈɾju.ɾ'
     }
   },
   lithuanian: {
@@ -160,17 +160,17 @@ export const languages = {
       100: 'šimtas'
     },
     ipa: {
-      1: 'vʲɪɛˈnɐs',
+      1: 'vʲɪ.ɛˈnɐs',
       2: 'dʊ',
       3: 'trʲiːs',
-      4: 'kʲɛtʊˈrʲɪ',
-      5: 'pʲɛnʲˈkʲɪ',
-      6: 'ʃɛˈʃʲɪ',
-      7: 'sʲɛpˈtʲiːnʲɪ',
-      8: 'ɐʃtʊɔˈnʲɪ',
-      9: 'dʲɛvʲiːˈnʲɪ',
-      10: 'dʲɛˈʃɪmtʲ',
-      100: 'ʃɪmˈtɐs'
+      4: 'kʲɛ.tʊ.ˈrʲɪ',
+      5: 'pʲɛnʲ.ˈkʲɪ',
+      6: 'ʃɛ.ˈʃʲɪ',
+      7: 'sʲɛp.ˈtʲiː.nʲɪ',
+      8: 'ɐʃ.tʊ.ɔ.ˈnʲɪ',
+      9: 'dʲɛ.vʲiː.ˈnʲɪ',
+      10: 'dʲɛ.ˈʃɪmtʲ',
+      100: 'ʃɪm.ˈtɐs'
     }
   },
   latvian: {
@@ -190,15 +190,15 @@ export const languages = {
     },
     ipa: {
       1: 'viɛns',
-      2: 'divi',
+      2: 'di.vi',
       3: 'triːs',
-      4: 't͡ʃɛtri',
-      5: 'piɛt͡si',
-      6: 'sɛʃi',
-      7: 'sɛptiɲi',
-      8: 'astɔɲi',
-      9: 'dɛviɲi',
-      10: 'dɛsmit',
+      4: 't͡ʃɛt.ri',
+      5: 'pi.ɛt͡.si',
+      6: 'sɛ.ʃi',
+      7: 'sɛp.ti.ɲi',
+      8: 'as.tɔ.ɲi',
+      9: 'dɛ.vi.ɲi',
+      10: 'dɛs.mit',
       100: 'simts'
     }
   },
@@ -218,16 +218,16 @@ export const languages = {
       100: 'sto'
     },
     ipa: {
-      1: 'ˈjɛdɛn',
+      1: 'ˈjɛ.dɛn',
       2: 'dva',
       3: 'tʂɨ',
-      4: 'ˈt͡ʂtɛrɨ',
+      4: 'ˈt͡ʂtɛ.rɨ',
       5: 'pjɛɲt͡ɕ',
       6: 'ʂɛɕt͡ɕ',
-      7: 'ˈɕɛdɛm',
-      8: 'ˈɔɕɛm',
-      9: 'ˈd͡ʑɛvjɛɲt͡ɕ',
-      10: 'ˈd͡ʑɛɕɛɲt͡ɕ',
+      7: 'ˈɕɛ.dɛm',
+      8: 'ˈɔ.ɕɛm',
+      9: 'ˈd͡ʑɛ.vjɛɲt͡ɕ',
+      10: 'ˈd͡ʑɛ.ɕɛɲt͡ɕ',
       100: 'stɔ'
     }
   },
@@ -247,16 +247,16 @@ export const languages = {
       100: 'sto'
     },
     ipa: {
-      1: 'jêdaːn',
+      1: 'jê.daːn',
       2: 'dvâː',
       3: 'trîː',
-      4: 'tʃětiri',
+      4: 'tʃě.ti.ri',
       5: 'pêːt',
       6: 'ʃêst',
-      7: 'sêdaːm',
-      8: 'ôsaːm',
-      9: 'dêʋet',
-      10: 'dêset',
+      7: 'sê.daːm',
+      8: 'ô.saːm',
+      9: 'dê.ʋet',
+      10: 'dê.set',
       100: 'stô'
     }
   },
@@ -312,14 +312,14 @@ export const languages = {
       1: 'eitn̥',
       2: 'tveiːr',
       3: 'θriːr',
-      4: 'fjouːrɪr',
+      4: 'fjou.ːrɪr',
       5: 'fɪm̥ː',
       6: 'sɛxs',
       7: 'sjœ',
-      8: 'auhtːa',
+      8: 'auh.tːa',
       9: 'niːʏ',
       10: 'tʰiːʏ',
-      100: 'hʏntraθ'
+      100: 'hʏn.traθ'
     }
   },
   norwegian: {
@@ -341,14 +341,14 @@ export const languages = {
       1: 'eːn',
       2: 'tuː',
       3: 'treː',
-      4: 'fiːrə',
+      4: 'fiː.rə',
       5: 'fɛm',
       6: 'sɛks',
       7: 'syːv',
-      8: 'ɔtːə',
+      8: 'ɔt.ːə',
       9: 'niː',
       10: 'tiː',
-      100: 'hʉndrə'
+      100: 'hʉn.drə'
     }
   },
   greek: {
@@ -373,11 +373,11 @@ export const languages = {
       4: 'ˈtɛ.sɛ.ra',
       5: 'ˈpɛn.dɛ',
       6: 'ˈɛ.ksi',
-      7: 'ɛfˈta',
-      8: 'ɔkˈtɔ',
+      7: 'ɛf.ˈta',
+      8: 'ɔk.ˈtɔ',
       9: 'ɛˈnɛ.a',
       10: 'ˈðɛ.ka',
-      100: 'ɛkaˈtɔ'
+      100: 'ɛ.ka.ˈtɔ'
     }
   },
   persian: {
@@ -399,7 +399,7 @@ export const languages = {
       1: 'jek',
       2: 'do',
       3: 'se',
-      4: 't͡ʃæhɒːɾ',
+      4: 't͡ʃæ.hɒːɾ',
       5: 'pænd͡ʒ',
       6: 'ʃeʃ',
       7: 'hæft',
@@ -488,17 +488,17 @@ export const languages = {
       100: 'śata'
     },
     ipa: {
-      1: 'eːkɐ',
+      1: 'eː.kɐ',
       2: 'dʋi',
       3: 't̪ri',
-      4: 't͡ʃɐt̪ʊr',
-      5: 'pɐɲt͡ʃɐ',
+      4: 't͡ʃɐ.t̪ʊr',
+      5: 'pɐɲ.t͡ʃɐ',
       6: 'ʂɐʂ',
-      7: 'sɐpt̪ɐ',
-      8: 'ɐʂʈɐ',
-      9: 'nɐʋɐ',
-      10: 'd̪ɐɕɐ',
-      100: 'ɕɐt̪ɐ'
+      7: 'sɐp.t̪ɐ',
+      8: 'ɐʂ.ʈɐ',
+      9: 'nɐ.ʋɐ',
+      10: 'd̪ɐ.ɕɐ',
+      100: 'ɕɐ.t̪ɐ'
     }
   },
   latin: {
@@ -517,7 +517,7 @@ export const languages = {
       100: 'centum'
     },
     ipa: {
-      1: 'ˈuːnʊs',
+      1: 'ˈuː.nʊs',
       2: 'ˈdʊ.oː',
       3: 'treːs',
       4: 'ˈkʷat.tʊ.ɔr',
@@ -546,17 +546,17 @@ export const languages = {
       100: 'o sută'
     },
     ipa: {
-      1: 'unu',
+      1: 'u.nu',
       2: 'doj',
       3: 'trej',
-      4: 'patru',
+      4: 'pat.ru',
       5: 't͡ʃint͡ʃʲ',
-      6: 'ʃase',
-      7: 'ʃapte',
+      6: 'ʃa.se',
+      7: 'ʃap.te',
       8: 'opt',
-      9: 'no̯wə',
-      10: 'zet͡ʃe',
-      100: 'o sutə'
+      9: 'no̯.wə',
+      10: 'ze.t͡ʃe',
+      100: 'o su.tə'
     }
   }
 };
