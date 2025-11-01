@@ -92,7 +92,7 @@
 </script>
 
 <main>
-  <h1>Indo-European Numerals Game</h1>
+  <h1>Guess the numbers</h1>
 
   <div class="language-display">
     Language: <strong>{languages[selectedLanguage]?.name || 'Loading...'}</strong>
@@ -169,6 +169,8 @@
   h1 {
     text-align: center;
     color: #333;
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
   }
 
   .language-display {
@@ -252,8 +254,8 @@
   }
 
   .grid-slot {
-    width: 100px;
-    height: 100px;
+    width: 130px;
+    height: 130px;
     border: 2px solid #ddd;
     border-radius: 8px;
     display: flex;
@@ -282,7 +284,7 @@
   }
 
   .slot-number {
-    font-size: 4rem;
+    font-size: 5rem;
     color: #e0e0e0;
     font-weight: bold;
     position: absolute;
@@ -295,7 +297,7 @@
     cursor: move;
     user-select: none;
     font-weight: 600;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     position: absolute;
     z-index: 1;
     text-align: center;
@@ -311,17 +313,39 @@
   }
 
   @media (max-width: 600px) {
-    .game-container {
+    main {
       padding: 1rem;
     }
 
+    h1 {
+      font-size: 1.2rem;
+      margin: 0.25rem 0;
+    }
+
+    .language-display {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .controls {
+      margin-bottom: 1rem;
+    }
+
+    .game-container {
+      padding: 0.5rem;
+    }
+
     .grid-slot {
-      width: 80px;
-      height: 80px;
+      width: 90px;
+      height: 90px;
     }
 
     .slot-number {
-      font-size: 1.5rem;
+      font-size: 3.5rem;
+    }
+
+    .word-card {
+      font-size: 1.1rem;
     }
   }
 </style>
