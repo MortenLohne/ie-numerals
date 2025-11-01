@@ -137,17 +137,15 @@
             class:correct={hasSubmitted && slotFeedback[i] === true}
             class:incorrect={hasSubmitted && slotFeedback[i] === false}
             class:selected={selectedSlot === i}
+            draggable={gridSlots[i] !== null}
+            on:dragstart={(e) => handleDragStart(e, gridSlots[i], i)}
             on:dragover={handleDragOver}
             on:drop={(e) => handleDrop(e, i)}
             on:click={() => handleSlotClick(i)}
           >
             <div class="slot-number">{i + 1}</div>
             {#if gridSlots[i]}
-              <div
-                class="word-card draggable"
-                draggable="true"
-                on:dragstart={(e) => handleDragStart(e, gridSlots[i], i)}
-              >
+              <div class="word-card">
                 {gridSlots[i].word}
               </div>
             {/if}
@@ -161,17 +159,15 @@
           class:correct={hasSubmitted && slotFeedback[9] === true}
           class:incorrect={hasSubmitted && slotFeedback[9] === false}
           class:selected={selectedSlot === 9}
+          draggable={gridSlots[9] !== null}
+          on:dragstart={(e) => handleDragStart(e, gridSlots[9], 9)}
           on:dragover={handleDragOver}
           on:drop={(e) => handleDrop(e, 9)}
           on:click={() => handleSlotClick(9)}
         >
           <div class="slot-number">10</div>
           {#if gridSlots[9]}
-            <div
-              class="word-card draggable"
-              draggable="true"
-              on:dragstart={(e) => handleDragStart(e, gridSlots[9], 9)}
-            >
+            <div class="word-card">
               {gridSlots[9].word}
             </div>
           {/if}
@@ -182,11 +178,17 @@
 </main>
 
 <style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
   main {
     max-width: 800px;
+    width: 100%;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 1rem;
     font-family: Arial, sans-serif;
+    overflow-x: hidden;
   }
 
   h1 {
@@ -290,6 +292,14 @@
     cursor: pointer;
   }
 
+  .grid-slot[draggable="true"] {
+    cursor: move;
+  }
+
+  .grid-slot[draggable="true"]:active {
+    cursor: grabbing;
+  }
+
   .grid-slot:hover {
     background-color: #e8f5e9;
     border-color: #4CAF50;
@@ -325,7 +335,6 @@
 
   .word-card {
     color: #333;
-    cursor: move;
     user-select: none;
     font-weight: 600;
     font-size: 1.5rem;
@@ -333,19 +342,12 @@
     z-index: 1;
     text-align: center;
     padding: 0.5rem;
-  }
-
-  .word-card:hover {
-    color: #000;
-  }
-
-  .word-card:active {
-    cursor: grabbing;
+    pointer-events: none;
   }
 
   @media (max-width: 600px) {
     main {
-      padding: 1rem;
+      padding: 0.5rem;
     }
 
     h1 {
@@ -363,12 +365,27 @@
     }
 
     .game-container {
-      padding: 0.5rem;
+      padding: 0;
+      width: 100%;
+    }
+
+    .grid-container {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .grid {
+      max-width: 100%;
+      gap: 0.4rem;
     }
 
     .grid-slot {
       width: 90px;
       height: 90px;
+    }
+
+    .bottom-row {
+      margin-top: 0.4rem;
     }
 
     .slot-number {
