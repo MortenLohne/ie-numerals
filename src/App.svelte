@@ -10,6 +10,7 @@
   let gameWon = false;
   let slotFeedback = Array(10).fill(null); // null: not checked, true: correct, false: incorrect
   let hasSubmitted = false;
+  let selectedSlot = null; // For tap-to-swap on mobile
 
   // Initialize game
   function startGame() {
@@ -17,6 +18,7 @@
     hasSubmitted = false;
     slotFeedback = Array(10).fill(null);
     shuffledWords = [];
+    selectedSlot = null;
 
     // Pick a random language
     const languageKeys = Object.keys(languages);
@@ -61,6 +63,23 @@
       gridSlots[slotIndex] = draggedWord;
       draggedWord = null;
       draggedFromSlot = null;
+    }
+  }
+
+  // Tap-to-swap handler for mobile
+  function handleSlotClick(slotIndex) {
+    if (selectedSlot === null) {
+      // First tap - select this slot
+      selectedSlot = slotIndex;
+    } else if (selectedSlot === slotIndex) {
+      // Tap same slot - deselect
+      selectedSlot = null;
+    } else {
+      // Second tap - swap the two slots
+      const temp = gridSlots[selectedSlot];
+      gridSlots[selectedSlot] = gridSlots[slotIndex];
+      gridSlots[slotIndex] = temp;
+      selectedSlot = null;
     }
   }
 
@@ -117,8 +136,10 @@
             class="grid-slot"
             class:correct={hasSubmitted && slotFeedback[i] === true}
             class:incorrect={hasSubmitted && slotFeedback[i] === false}
+            class:selected={selectedSlot === i}
             on:dragover={handleDragOver}
             on:drop={(e) => handleDrop(e, i)}
+            on:click={() => handleSlotClick(i)}
           >
             <div class="slot-number">{i + 1}</div>
             {#if gridSlots[i]}
@@ -139,8 +160,10 @@
           class="grid-slot slot-10"
           class:correct={hasSubmitted && slotFeedback[9] === true}
           class:incorrect={hasSubmitted && slotFeedback[9] === false}
+          class:selected={selectedSlot === 9}
           on:dragover={handleDragOver}
           on:drop={(e) => handleDrop(e, 9)}
+          on:click={() => handleSlotClick(9)}
         >
           <div class="slot-number">10</div>
           {#if gridSlots[9]}
@@ -263,7 +286,8 @@
     justify-content: center;
     background-color: #f9f9f9;
     position: relative;
-    transition: background-color 0.5s ease, border-color 0.5s ease, border-width 0.5s ease;
+    transition: background-color 0.5s ease, border-color 0.5s ease, border-width 0.5s ease, box-shadow 0.3s ease;
+    cursor: pointer;
   }
 
   .grid-slot:hover {
@@ -281,6 +305,13 @@
     background-color: #ffcdd2;
     border-color: #f44336;
     border-width: 3px;
+  }
+
+  .grid-slot.selected {
+    background-color: #fff9c4;
+    border-color: #FFC107;
+    border-width: 3px;
+    box-shadow: 0 0 12px rgba(255, 193, 7, 0.5);
   }
 
   .slot-number {
