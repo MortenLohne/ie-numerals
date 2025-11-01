@@ -14,6 +14,21 @@
   let showIPA = false; // Toggle between Latin and IPA
   let seenLanguages = new Set(); // Track which languages have been seen
   let allLanguagesSeen = false; // Track if all languages have been tried
+  let initialGridState = []; // Store initial state to detect if user has started
+
+  // Check if the user has made any moves
+  function hasUserMadeChanges() {
+    if (gameWon) return false; // If won, no need to confirm
+    if (initialGridState.length === 0) return false; // No initial state yet
+
+    // Compare current grid to initial grid
+    for (let i = 0; i < gridSlots.length; i++) {
+      if (gridSlots[i]?.number !== initialGridState[i]?.number) {
+        return true; // User has moved something
+      }
+    }
+    return false;
+  }
 
   // Initialize game
   function startGame() {
@@ -45,13 +60,34 @@
     // Shuffle the words and place them directly in the grid
     const shuffled = [...words].sort(() => Math.random() - 0.5);
     gridSlots = [...shuffled];
+    // Store initial state for comparison
+    initialGridState = [...shuffled];
+  }
+
+  // Handle new language button click with confirmation
+  function handleNewLanguage() {
+    if (hasUserMadeChanges()) {
+      if (confirm('You have unsolved changes. Are you sure you want to start a new language?')) {
+        startGame();
+      }
+    } else {
+      startGame();
+    }
   }
 
   // Reset to try all languages again
   function resetLanguages() {
-    seenLanguages = new Set();
-    allLanguagesSeen = false;
-    startGame();
+    if (hasUserMadeChanges()) {
+      if (confirm('You have unsolved changes. Are you sure you want to reset and try all languages again?')) {
+        seenLanguages = new Set();
+        allLanguagesSeen = false;
+        startGame();
+      }
+    } else {
+      seenLanguages = new Set();
+      allLanguagesSeen = false;
+      startGame();
+    }
   }
 
   // Get the display text for a word (either Latin or IPA)
@@ -147,7 +183,7 @@
   <div class="controls">
     <button class="submit-button" on:click={handleSubmit}>Submit Answer</button>
     {#if !allLanguagesSeen}
-      <button on:click={startGame}>New Language</button>
+      <button on:click={handleNewLanguage}>New Language</button>
     {:else}
       <button on:click={resetLanguages}>Try All Languages Again</button>
     {/if}
