@@ -11,6 +11,9 @@
   let slotFeedback = Array(10).fill(null); // null: not checked, true: correct, false: incorrect
   let hasSubmitted = false;
   let selectedSlot = null; // For tap-to-swap on mobile
+  let showIPA = false; // Toggle between Latin and IPA
+  let seenLanguages = new Set(); // Track which languages have been seen
+  let allLanguagesSeen = false; // Track if all languages have been tried
 
   // Initialize game
   function startGame() {
@@ -20,17 +23,41 @@
     shuffledWords = [];
     selectedSlot = null;
 
-    // Pick a random language
+    // Get available languages (unseen ones)
     const languageKeys = Object.keys(languages);
-    selectedLanguage = languageKeys[Math.floor(Math.random() * languageKeys.length)];
+    const unseenLanguages = languageKeys.filter(key => !seenLanguages.has(key));
+
+    // Check if all languages have been seen
+    if (unseenLanguages.length === 0) {
+      allLanguagesSeen = true;
+      return;
+    }
+
+    // Pick a random language from unseen ones
+    selectedLanguage = unseenLanguages[Math.floor(Math.random() * unseenLanguages.length)];
+    seenLanguages.add(selectedLanguage);
 
     const words = gameNumbers.map(num => ({
       number: num,
-      word: languages[selectedLanguage].numbers[num]
+      word: languages[selectedLanguage].numbers[num],
+      ipa: languages[selectedLanguage].ipa?.[num] || languages[selectedLanguage].numbers[num]
     }));
     // Shuffle the words and place them directly in the grid
     const shuffled = [...words].sort(() => Math.random() - 0.5);
     gridSlots = [...shuffled];
+  }
+
+  // Reset to try all languages again
+  function resetLanguages() {
+    seenLanguages = new Set();
+    allLanguagesSeen = false;
+    startGame();
+  }
+
+  // Get the display text for a word (either Latin or IPA)
+  function getDisplayText(wordObj) {
+    if (!wordObj) return '';
+    return showIPA ? wordObj.ipa : wordObj.word;
   }
 
   // Drag and drop handlers
@@ -119,12 +146,23 @@
 
   <div class="controls">
     <button class="submit-button" on:click={handleSubmit}>Submit Answer</button>
-    <button on:click={startGame}>New Game</button>
+    {#if !allLanguagesSeen}
+      <button on:click={startGame}>New Language</button>
+    {:else}
+      <button on:click={resetLanguages}>Try All Languages Again</button>
+    {/if}
+    <button on:click={() => showIPA = !showIPA}>{showIPA ? 'Show Latin' : 'Show IPA'}</button>
   </div>
 
   {#if gameWon}
     <div class="win-message">
       🎉 Congratulations! You got them all right!
+    </div>
+  {/if}
+
+  {#if allLanguagesSeen}
+    <div class="all-languages-message">
+      🎊 Congratulations! You've tried all {Object.keys(languages).length} languages!
     </div>
   {/if}
 
@@ -146,7 +184,7 @@
             <div class="slot-number">{i + 1}</div>
             {#if gridSlots[i]}
               <div class="word-card">
-                {gridSlots[i].word}
+                {getDisplayText(gridSlots[i])}
               </div>
             {/if}
           </div>
@@ -168,7 +206,7 @@
           <div class="slot-number">10</div>
           {#if gridSlots[9]}
             <div class="word-card">
-              {gridSlots[9].word}
+              {getDisplayText(gridSlots[9])}
             </div>
           {/if}
         </div>
@@ -245,6 +283,16 @@
 
   .win-message {
     background-color: #4CAF50;
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .all-languages-message {
+    background-color: #9C27B0;
     color: white;
     padding: 1rem;
     border-radius: 8px;
