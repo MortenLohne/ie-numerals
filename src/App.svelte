@@ -174,7 +174,7 @@
 </script>
 
 <main>
-  <h1>Guess the numbers</h1>
+  <h1>Put the numbers in the right order</h1>
 
   <div class="language-display">
     Language: <strong>{languages[selectedLanguage]?.name || 'Loading...'}</strong>
